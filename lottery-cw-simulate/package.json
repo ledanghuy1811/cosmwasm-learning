@@ -1,0 +1,23 @@
+{
+  "name": "lottery-cw-simulate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@oraichain/cw-simulate": "^2.8.71",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.31.3",
+    "@cosmjs/stargate": "^0.31.3",
+    "@oraichain/common-contracts-sdk": "^1.0.31",
+    "@oraichain/wasm-json-toolkit": "^1.0.24",
+    "typescript": "^5.2.2"
+  }
+}
