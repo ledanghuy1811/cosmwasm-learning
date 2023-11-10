@@ -1,8 +1,8 @@
 #[cfg(not(feature = "library"))]
 use cosmwasm_std::entry_point;
-use cosmwasm_std::{DepsMut, Env, MessageInfo, Reply, Response, Deps, Empty, Binary, StdResult};
+use cosmwasm_std::{DepsMut, Env, MessageInfo, Reply, Response, Deps, Binary, StdResult};
 use error::ContractError;
-use msg::{ExecMsg, InstantiateMsg};
+use msg::{ExecMsg, InstantiateMsg, QueryMsg};
 
 mod contract;
 mod error;
@@ -32,7 +32,7 @@ pub fn execute(
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
-pub fn query(deps: Deps, env: Env, msg: Empty) -> StdResult<Binary> {
+pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> StdResult<Binary> {
     contract::query(deps, env, msg)
 }
 

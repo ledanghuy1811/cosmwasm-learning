@@ -1,7 +1,6 @@
 use crate::contract::{execute, instantiate, query, reply};
-use crate::msg::{
-    ExecMsg, InstantationData, InstantiateMsg, IsMemberResp, ProposeMemberData, QueryMsg,
-};
+use crate::msg::{ExecMsg, InstantationData, InstantiateMsg, IsMemberResp, QueryMsg};
+use common::msg::ProposeMemberData;
 use anyhow::Result as AnyResult;
 use cosmwasm_std::{from_json, to_json_binary, Addr, Decimal, WasmMsg};
 use cw_multi_test::{App, ContractWrapper, Executor};
@@ -29,7 +28,7 @@ impl CodeId {
         halftime: u64,
         minimal_acceptances: u64,
         proxy_code_id: proxy::multitest::CodeId,
-        // distribution_code_id: distribution::multitest::CodeId,
+        distribution_code_id: distribution::multitest::CodeId,
         initial_members: &[&str],
         label: &str,
     ) -> AnyResult<(Contract, InstantationData)> {
@@ -43,6 +42,7 @@ impl CodeId {
             halftime,
             minimal_acceptances,
             proxy_code_id,
+            distribution_code_id,
             initial_members,
             label,
         )
@@ -69,7 +69,7 @@ impl Contract {
         halftime: u64,
         minimal_acceptances: u64,
         proxy_code_id: proxy::multitest::CodeId,
-        // distribution_code_id: distribution::multitest::CodeId,
+        distribution_code_id: distribution::multitest::CodeId,
         initial_members: &[&str],
         label: &str,
     ) -> AnyResult<(Self, InstantationData)> {
@@ -80,7 +80,7 @@ impl Contract {
             halftime,
             minimal_acceptances,
             proxy_code_id: proxy_code_id.into(),
-            distribution_code_id: 0,
+            distribution_code_id: distribution_code_id.into(),
             initial_members: initial_members.iter().map(|s| s.to_string()).collect(),
         };
 

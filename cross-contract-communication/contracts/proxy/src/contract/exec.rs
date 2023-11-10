@@ -6,10 +6,11 @@ use cw_utils::must_pay;
 
 use crate::contract::{WITHDRAW_REPLY_ID, PROPOSE_MEMBER_ID};
 use crate::error::ContractError;
-use crate::msg::{DistribtionExecMsg, MembershipExecMsg};
 use crate::state::{
     WithdrawalData, CONFIG, DONATIONS, HALFTIME, LAST_UPDATED, OWNER, PENDING_WITHDRAWAL, WEIGHT,
 };
+use common::msg::membership::ExecMsg as MembershipExecMsg;
+use distribution::msg::ExecMsg as DistribtionExecMsg;
 
 pub fn donate(deps: DepsMut, info: MessageInfo) -> Result<Response, ContractError> {
     let config = CONFIG.load(deps.storage)?;
