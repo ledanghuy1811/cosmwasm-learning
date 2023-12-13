@@ -1,0 +1,20 @@
+{
+  "name": "cw20-simulate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "ts-node ./index.ts"
+  },
+  "devDependencies": {
+    "@oraichain/cw-simulate": "^2.8.72",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.31.3",
+    "@cosmjs/stargate": "^0.31.3",
+    "@oraichain/common-contracts-sdk": "^1.0.31",
+    "@oraichain/wasm-json-toolkit": "^1.0.24",
+    "typescript": "^5.3.2"
+  }
+}

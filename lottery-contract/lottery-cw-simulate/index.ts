@@ -54,20 +54,20 @@ async function main() {
 
   const lotteryClient = new LotteryClient(client, senderAddress, contractAddress);
   // console.log(lotteryClient);
-  
+
   // test query contract
   let lotteryContractBalance = await lotteryClient.contractBalance();
   console.log(lotteryContractBalance);
 
   let lotteryMinimalDonation = await lotteryClient.minimalDonation();
   console.log(lotteryMinimalDonation);
-  
+
   // test execute contract
-  await client.execute(player1Address, contractAddress, {donate: {}}, "auto", "none", [{amount: "1000", denom: "orai"}]);
-  await client.execute(player2Address, contractAddress, {donate: {}}, "auto", "none", [{amount: "1000", denom: "orai"}]);
-  await client.execute(player3Address, contractAddress, {donate: {}}, "auto", "none", [{amount: "1000", denom: "orai"}]);
-  
-  await lotteryClient.pickWinner('auto', "none", [{amount: "0", denom: "orai"}]);
+  await client.execute(player1Address, contractAddress, { donate: {} }, "auto", "none", [{ amount: "1000", denom: "orai" }]);
+  await client.execute(player2Address, contractAddress, { donate: {} }, "auto", "none", [{ amount: "1000", denom: "orai" }]);
+  await client.execute(player3Address, contractAddress, { donate: {} }, "auto", "none", [{ amount: "1000", denom: "orai" }]);
+
+  await lotteryClient.pickWinner('auto', "none", [{ amount: "0", denom: "orai" }]);
   console.log("[+] After pick winner:");
   console.log("[+] Sender balance: ", await client.getBalance(senderAddress, 'orai'));
   console.log("[+] Player1 balance: ", await client.getBalance(player1Address, 'orai'));
